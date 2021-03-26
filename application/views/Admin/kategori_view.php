@@ -1,6 +1,6 @@
 <div class="main-content">
 	<div class="container-fluid">
-		<h3 class="page-title">Data Kategori Buku</h3>
+		<h3 class="page-title">Data Kategori Barang</h3>
 		<?php
 			$notif = $this->session->flashdata('notif');
 			if($notif != NULL){

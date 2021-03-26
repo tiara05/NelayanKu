@@ -13,12 +13,25 @@
             </div>
         </div>
     </section>
+      
     <section class="shoping-cart spad">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
+            <ul class="nav nav-tabs" >
+              <li class="nav-item">
+                <a class="nav-link active" href="#preorder" style="font-size: 20px; font-weight: bold;">Pre Order</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#lelang" style="font-size: 20px; font-weight: bold;">Lelang</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#transaksi" style="font-size: 20px; font-weight: bold;">Transaksi</a>
+              </li>
+            </ul>
+            <br><br>
+            <div class="row" >
+                <div class="col-lg-12" >
                     <div class="shoping__cart__table">
-                        <table>
+                        <table id="preorder">
                             <thead>
                                 <tr>
                                     <th class="shoping__product">Nama Products</th>
@@ -30,6 +43,7 @@
                             
                             </tbody>
                         </table>
+                        
                     </div>
                 </div>
             </div>

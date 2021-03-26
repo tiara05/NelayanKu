@@ -104,7 +104,7 @@ class Barang_admin_model extends CI_Model {
 						->result();
 	}
 
-	public function tambah($foto)
+	public function tambah()
 	{
 		$data = array(
 				'namabarang' 	=> $this->input->post('nama_barang'),
@@ -112,7 +112,7 @@ class Barang_admin_model extends CI_Model {
 				'id_nelayan'	=> $this->input->post('nelayan'),
 				'stok'			=> $this->input->post('stok'),
 				'harga'			=> $this->input->post('harga'),
-				'fotoikan'		=> $foto['file_name']
+				'fotoikan'		=> $this->input->post('fotoikan'),
 			);
 
 		$this->db->insert('barang', $data);
@@ -127,18 +127,15 @@ class Barang_admin_model extends CI_Model {
 	public function ubah()
 	{
 		$data = array(
-				'kode_buku' 	=> $this->input->post('ubah_kode_buku'),
-				'judul' 		=> $this->input->post('ubah_judul'),
-				'tahun'			=> $this->input->post('ubah_tahun'),
-				'penulis'		=> $this->input->post('ubah_penulis'),
-				'penerbit'		=> $this->input->post('ubah_penerbit'),
-				'id_kat'		=> $this->input->post('ubah_kategori'),
+				'namabarang' 	=> $this->input->post('ubah_nama_barang'),
+				'id_kategori'	=> $this->input->post('ubah_kategori'),
+				'id_nelayan'	=> $this->input->post('ubah_nelayan'),
 				'stok'			=> $this->input->post('ubah_stok'),
-				'harga'			=> $this->input->post('ubah_harga')
+				'harga'			=> $this->input->post('ubah_harga'),
 			);
 
-		$this->db->where('id_buku', $this->input->post('ubah_id_buku'))
-				 ->update('buku', $data);
+		$this->db->where('id_barang', $this->input->post('ubah_id'))
+				 ->update('barang', $data);
 		
 		if($this->db->affected_rows() > 0){
 			return TRUE;
@@ -149,8 +146,8 @@ class Barang_admin_model extends CI_Model {
 
 	public function hapus()
 	{
-		$this->db->where('id_buku', $this->input->post('hapus_id_buku'))
-				 ->delete('buku');
+		$this->db->where('id_barang', $this->input->post('hapus_id_barang'))
+				 ->delete('barang');
 
 		if($this->db->affected_rows() > 0){
 			return TRUE;

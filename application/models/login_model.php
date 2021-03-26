@@ -6,6 +6,7 @@ class Login_model extends CI_Model {
 	public function cek_user(){
 		$u = $this->input->post('username');
 		$p = $this->input->post('password');
+		
 		$query = $this->db->where('username', $u)
 						  ->where('password', $p)
 						  ->get('user');
@@ -16,6 +17,7 @@ class Login_model extends CI_Model {
 
 			$data_session = array(
 									'username'  => $data_login->username,
+									'alamat'  	=> $data_login->alamat,
 									'logged_in' => TRUE,
 
 								);

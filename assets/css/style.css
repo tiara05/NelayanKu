@@ -528,6 +528,331 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+
+/*heroo*/
+
+#heroo {
+  width: 100%;
+  height: 100%;
+  background:  url("../img/comming soon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+
+#heroo .container {
+}
+
+#heroo h1 {
+  margin: 0 0 10px 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  color: black;
+}
+
+#heroo h2 {
+  color: black;
+  margin-bottom: 50px;
+  font-size: 24px;
+}
+
+#heroo .btn-get-started {
+  font-family: "Jost", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 28px 11px 28px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 10px 0 0 0;
+  color: black;
+  background: #99D1F7;
+}
+
+#heroo .btn-get-started:hover {
+  background: #209dd8;
+}
+
+#heroo .btn-watch-video {
+  font-size: 16px;
+  display: inline-block;
+  padding: 10px 0 8px 40px;
+  transition: 0.5s;
+  margin: 10px 0 0 25px;
+  color: #fff;
+  position: relative;
+}
+
+#heroo .btn-watch-video i {
+  color: #fff;
+  font-size: 32px;
+  position: absolute;
+  left: 0;
+  top: 7px;
+  transition: 0.3s;
+}
+
+#heroo .btn-watch-video:hover i {
+  color: #47b2e4;
+}
+
+#heroo .animated {
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+@media (max-width: 991px) {
+  #heroo {
+    height: 100vh;
+    text-align: center;
+  }
+  #heroo .animated {
+    -webkit-animation: none;
+    animation: none;
+  }
+  #heroo .heroo-img {
+    text-align: center;
+  }
+  #heroo .heroo-img img {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  #heroo h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  #heroo h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+  #heroo .heroo-img img {
+    width: 70%;
+  }
+}
+
+@media (max-width: 575px) {
+  #heroo .heroo-img img {
+    width: 80%;
+  }
+  #heroo .btn-get-started {
+    font-size: 16px;
+    padding: 10px 24px 11px 24px;
+  }
+  #heroo .btn-watch-video {
+    font-size: 16px;
+    padding: 10px 0 8px 40px;
+    margin-left: 20px;
+  }
+  #hero0 .btn-watch-video i {
+    font-size: 32px;
+    top: 7px;
+  }
+}
+
+@-webkit-keyframes up-down {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes up-down {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+/*--------------------------------------------------------------
+# Features
+--------------------------------------------------------------*/
+.features {
+  padding-bottom: 40px;
+}
+
+.features .nav-tabs {
+  border: 0;
+}
+
+.features .nav-link {
+  border: 0;
+  padding: 20px;
+  transition: 0.3s;
+  color: #364146;
+  transition: 0.3s ease-in-out;
+  border-radius: 0;
+  border-left: 4px solid #fafbfb;
+}
+
+.features .nav-link h4 {
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+  color: #576971;
+}
+
+.features .nav-link p {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.features .nav-link:hover {
+  background: #fafbfb;
+}
+
+.features .nav-link:hover h4 {
+  color: #364146;
+}
+
+.features .nav-link.active {
+  border-radius: 0;
+  border: 0;
+  border-left: 4px solid #009cea;
+  background: #fafbfb;
+}
+
+.features .nav-link.active h4 {
+  color: #009cea;
+}
+
+.features .tab-pane.active {
+  -webkit-animation: slide-down 0.5s ease-out;
+  animation: slide-down 0.5s ease-out;
+}
+
+.features .tab-content {
+  text-align: right;
+}
+
+@-webkit-keyframes slide-down {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+# Team
+--------------------------------------------------------------*/
+.teams {
+  background: url("../img/team-bg.jpg") center center no-repeat;
+  background-size: cover;
+  padding: 60px 0;
+  position: relative;
+}
+
+.teams::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.75);
+  z-index: 9;
+}
+
+.teams .container {
+  position: relative;
+  z-index: 10;
+}
+
+.teams .member {
+  text-align: center;
+  margin-bottom: 80px;
+  position: relative;
+}
+
+.teams .member .pic {
+  overflow: hidden;
+}
+
+.teams .member .member-info {
+  position: absolute;
+  top: 85%;
+  left: 20px;
+  right: 20px;
+  background: #fff;
+  padding: 20px 0;
+  color: #364146;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  max-height: 95px;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.teams .member:hover .member-info {
+  max-height: 300px;
+}
+
+.teams .member h4 {
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #364146;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.teams .member h4::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 1px;
+  background: #b5c1c6;
+  bottom: 0;
+  left: calc(50% - 25px);
+}
+
+.teams .member span {
+  font-style: italic;
+  display: block;
+  font-size: 13px;
+}
+
+.teams .member .social {
+  margin-top: 15px;
+}
+
+.teams .member .social a {
+  transition: color 0.3s;
+  color: #627680;
+}
+
+.teams .member .social a:hover {
+  color: #009cea;
+}
+
+.teams .member .social i {
+  font-size: 16px;
+  margin: 0 2px;
+}
+
+@media (max-width: 992px) {
+  .teams .member {
+    margin-bottom: 110px;
+  }
+}
 /*--------------------------------------------------------------
 # aboutt Section
 --------------------------------------------------------------*/
@@ -1140,6 +1465,344 @@ section {
   background-color: #4668a2;
 }
 
+/*skillss*/
+
+.skillss .accordion-list {
+  padding: 20px 50px 40px 100px;
+  
+}
+
+.skillss .accordion-list ul {
+  padding: 0;
+  list-style: none;
+}
+
+.skillss .accordion-list li + li {
+  margin-top: 15px;
+}
+
+.skillss .accordion-list li {
+  padding: 20px;
+  background: #f3f5fa;
+  border-radius: 4px;
+}
+
+#skillss .animated {
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+.skillss .accordion-list a {
+  display: block;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  padding-right: 30px;
+  outline: none;
+}
+
+.skillss .accordion-list span {
+  color: #47b2e4;
+  font-weight: 600;
+  font-size: 18px;
+  padding-right: 10px;
+}
+
+.skillss .accordion-list i {
+  font-size: 24px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.skillss .accordion-list p {
+  margin-bottom: 0;
+  padding: 10px 0 0 0;
+}
+
+.skillss .accordion-list .icon-show {
+  display: none;
+}
+
+.skillss .accordion-list a.collapsed {
+  color: #343a40;
+}
+
+.skillss .accordion-list a.collapsed:hover {
+  color: #47b2e4;
+}
+
+.skillss .accordion-list a.collapsed .icon-show {
+  display: inline-block;
+}
+
+.skillss .accordion-list a.collapsed .icon-close {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .skillss .content, .skillss .accordion-list {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .why-us .img {
+    min-height: 400px;
+  }
+  .why-us .content {
+    padding-top: 30px;
+  }
+  .skillss .accordion-list {
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  .why-us .img {
+    min-height: 200px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Skills
+--------------------------------------------------------------*/
+.skillss .content h3 {
+  font-weight: 700;
+  font-size: 32px;
+  color: #37517e;
+  font-family: "Poppins", sans-serif;
+}
+
+.skillss {
+  width: 100%;
+  background: url("../img/bg4.png");
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+.skillss .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skillss .content ul li {
+  padding-bottom: 10px;
+}
+
+.skillss .content ul i {
+  font-size: 20px;
+  padding-right: 4px;
+  color: #47b2e4;
+}
+
+.skillss .content p:last-child {
+  margin-bottom: 0;
+}
+
+.skillss .progress {
+  height: 50px;
+  display: block;
+  background: none;
+}
+
+.skillss .progress .skill {
+  padding: 5px 0;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: #37517e;
+}
+
+.skillss .progress .skill .val {
+  float: right;
+  font-style: normal;
+}
+
+.skillss .progress-bar-wrap {
+  background: #e8edf5;
+}
+
+.skillss .progress-bar {
+  width: 1px;
+  height: 10px;
+  transition: .9s;
+  background-color: #4668a2;
+}
+
+
+/*skillsss*/
+.skillsss .accordion-list {
+  padding: 20px 50px 40px 100px;
+}
+
+.skillsss .accordion-list ul {
+  padding: 0;
+  list-style: none;
+}
+
+.skillsss .accordion-list li + li {
+  margin-top: 15px;
+}
+
+.skillsss .accordion-list li {
+  padding: 20px;
+  background: #f3f5fa;
+  border-radius: 4px;
+}
+
+#skillsss .animated {
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+.skillsss .accordion-list a {
+  display: block;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  padding-right: 30px;
+  outline: none;
+}
+
+.skillsss .accordion-list span {
+  color: #47b2e4;
+  font-weight: 600;
+  font-size: 18px;
+  padding-right: 10px;
+}
+
+.skillsss .accordion-list i {
+  font-size: 24px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.skillsss .accordion-list p {
+  margin-bottom: 0;
+  padding: 10px 0 0 0;
+}
+
+.skillsss .accordion-list .icon-show {
+  display: none;
+}
+
+.skillsss .accordion-list a.collapsed {
+  color: #343a40;
+}
+
+.skillsss .accordion-list a.collapsed:hover {
+  color: #47b2e4;
+}
+
+.skillsss .accordion-list a.collapsed .icon-show {
+  display: inline-block;
+}
+
+.skillsss .accordion-list a.collapsed .icon-close {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .skillsss .content, .skillsss .accordion-list {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .why-us .img {
+    min-height: 400px;
+  }
+  .why-us .content {
+    padding-top: 30px;
+  }
+  .skillsss .accordion-list {
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  .why-us .img {
+    min-height: 200px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Skills
+--------------------------------------------------------------*/
+.skills .content h3 {
+  font-weight: 700;
+  font-size: 32px;
+  color: #37517e;
+  font-family: "Poppins", sans-serif;
+}
+
+.skillsss {
+  width: 100%;
+  background: url("../img/bg5.png");
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+.skillsss .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skillsss .content ul li {
+  padding-bottom: 10px;
+}
+
+.skillsss .content ul i {
+  font-size: 20px;
+  padding-right: 4px;
+  color: #47b2e4;
+}
+
+.skillsss .content p:last-child {
+  margin-bottom: 0;
+}
+
+.skillsss .progress {
+  height: 50px;
+  display: block;
+  background: none;
+}
+
+.skillsss .progress .skill {
+  padding: 5px 0;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: #37517e;
+}
+
+.skillsss .progress .skill .val {
+  float: right;
+  font-style: normal;
+}
+
+.skillsss .progress-bar-wrap {
+  background: #e8edf5;
+}
+
+.skillsss .progress-bar {
+  width: 1px;
+  height: 10px;
+  transition: .9s;
+  background-color: #4668a2;
+}
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/

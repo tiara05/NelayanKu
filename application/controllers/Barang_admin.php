@@ -6,7 +6,7 @@ class Barang_admin extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('barang_admin_model');
+		$this->load->model('Barang_admin_model');
 	}
 
 	public function index()
@@ -17,8 +17,8 @@ class Barang_admin extends CI_Controller {
 			$data['buku'] = $this->Barang_admin_model->get_buku();
 
 			//get_kategori untuk dropdown tambah/edit buku
-			$data['kategori'] = $this->barang_admin_model->get_kategori();
-			$data['nelayan'] = $this->barang_admin_model->get_nelayan();
+			$data['kategori'] = $this->Barang_admin_model->get_kategori();
+			$data['nelayan'] = $this->Barang_admin_model->get_nelayan();
 			$this->load->view('Admin/template', $data);
 
 		} else {
@@ -34,24 +34,15 @@ class Barang_admin extends CI_Controller {
 			$this->form_validation->set_rules('harga', 'harga', 'trim|required|numeric');
 			$this->form_validation->set_rules('kategori', 'kategori', 'trim|required');
 			$this->form_validation->set_rules('nelayan', 'nelayan', 'trim|required');
+			$this->form_validation->set_rules('fotoikan', 'fotoikan', 'trim|required');
 
 			if ($this->form_validation->run() == TRUE) {
-				//upload file
-				$config['upload_path'] = './assets/Admin/fotoikan/';
-				$config['allowed_types'] = 'gif|jpeg|png';
-				$config['max_size'] = '2000';
-				$this->load->library('upload', $config);
-				if($this->upload->do_upload('fotoikan')){
-					if($this->Barang_admin_model->tambah($this->upload->data()) == TRUE)
-					{
-						$this->session->set_flashdata('notif', 'Tambah buku berhasil');
-						redirect('Barang_admin/index');
-					} else {
-						$this->session->set_flashdata('notif', 'Tambah buku gagal');
-						redirect('Barang_admin/index');
-					}
+				if($this->Barang_admin_model->tambah() == TRUE)
+				{
+					$this->session->set_flashdata('notif', 'Tambah Barang berhasil');
+					redirect('Barang_admin/index');
 				} else {
-					$this->session->set_flashdata('notif', 'Tambah buku gagal upload');
+					$this->session->set_flashdata('notif', 'Tambah Barang gagal');
 					redirect('Barang_admin/index');
 				}
 			} else {
@@ -67,26 +58,24 @@ class Barang_admin extends CI_Controller {
 	{
 		if($this->session->userdata('logged_in') == TRUE){
 
-			$this->form_validation->set_rules('ubah_judul', 'Judul', 'trim|required');
-			$this->form_validation->set_rules('ubah_tahun', 'tahun', 'trim|required|numeric');
-			$this->form_validation->set_rules('ubah_penulis', 'penulis', 'trim|required');
-			$this->form_validation->set_rules('ubah_penerbit', 'penerbit', 'trim|required');
+			$this->form_validation->set_rules('ubah_nama_barang', 'nama_barang', 'trim|required');
 			$this->form_validation->set_rules('ubah_stok', 'harga', 'trim|required|numeric');
 			$this->form_validation->set_rules('ubah_harga', 'harga', 'trim|required|numeric');
 			$this->form_validation->set_rules('ubah_kategori', 'kategori', 'trim|required');
+			$this->form_validation->set_rules('ubah_nelayan', 'nelayan', 'trim|required');
 
 			if ($this->form_validation->run() == TRUE) {
 				if($this->Barang_admin_model->ubah() == TRUE)
 				{
-					$this->session->set_flashdata('notif', 'Ubah buku berhasil');
-					redirect('buku/index');
+					$this->session->set_flashdata('notif', 'Tambah kategori berhasil');
+					redirect('Barang_admin/index');
 				} else {
-					$this->session->set_flashdata('notif', 'Ubah buku gagal');
-					redirect('buku/index');
+					$this->session->set_flashdata('notif', 'Tambah kategori gagal');
+					redirect('Barang_admin/index');
 				}
 			} else {
 				$this->session->set_flashdata('notif', validation_errors());
-				redirect('buku/index');
+				redirect('Barang_admin/index');
 			}
 
 
@@ -98,14 +87,14 @@ class Barang_admin extends CI_Controller {
 	public function hapus()
 	{
 		if($this->session->userdata('logged_in') == TRUE){
-
-			if($this->Barang_admin_model->hapus() == TRUE){
-				$this->session->set_flashdata('notif', 'Hapus buku Berhasil');
-				redirect('buku/index');
-			} else {
-				$this->session->set_flashdata('notif', 'Hapus buku gagal');
-				redirect('buku/index');
-			}
+			if($this->Barang_admin_model->hapus() == TRUE)
+				{
+					$this->session->set_flashdata('notif', 'Tambah Barang berhasil');
+					redirect('Barang_admin/index');
+				} else {
+					$this->session->set_flashdata('notif', 'Tambah Barang gagal');
+					redirect('Barang_admin/index');
+				}
 
 		} else {
 			redirect('login/index');

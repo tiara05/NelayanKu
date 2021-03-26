@@ -441,7 +441,8 @@ ol {
 }
 
 .header__menu {
-	padding: 26px 0;
+	padding: 10px 0;
+	margin-top: 20px;
 	text-align: right;
 }
 
@@ -531,7 +532,7 @@ ol {
 .header__cart ul li {
 	list-style: none;
 	display: inline-block;
-	margin-right: 40px;
+	margin-right: 10px;
 }
 
 .header__cart ul li:last-child {

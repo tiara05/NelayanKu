@@ -20,7 +20,7 @@
                 <h4 style="font-style: italic;">Profile Saya</h4>
                 <form action="#">
                     <div class="row">
-                        <div class="col-lg-10 col-md-6">
+                        <div class="col-lg-8 col-md-6">
                             <div class="checkout__input">
                                 <table class="table table-borderless">
                                     <tbody>
@@ -36,25 +36,25 @@
                                             <th>Email</th>
                                             <td>:</td>
                                             <td>'.$a->email.'</td>
-                                            <td><button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#login" style="float: right;"><i class="fa fa-user"></i>    Ubah</button></td>
+                                            
                                         </tr>
                                         <tr>
                                             <th>Username</th>
                                             <td>:</td>
                                             <td>'.$a->username.'</td>
-                                            <td><button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#login" style="float: right;"><i class="fa fa-user"></i>    Ubah</button></td>
+                                            
                                         </tr>
                                         <tr>
                                             <th>Password</th>
                                             <td>:</td>
                                             <td>'.$a->password.'</td>
-                                            <td><button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#login" style="float: right;"><i class="fa fa-user"></i>    Ubah</button></td>
+                                            
                                         </tr>
                                         <tr>
                                             <th>Nomer Telepon</th>
                                             <td>:</td>
                                             <td>'.$a->nomertelpon.'</td>
-                                            <td><button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#login" style="float: right;"><i class="fa fa-user"></i>    Ubah</button></td>
+                                            
                                         </tr>
                                             ';
                                     }
@@ -68,8 +68,8 @@
             </div>
             <br>
             <div class="checkout__form">
-                <h4 style="font-style: italic;">Alamat Saya <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#login" style="float: right;"><i class="fa fa-user"></i>    Hapus</button>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#login" style="float: right; margin-right: 15px;"><i class="fa fa-user"></i>    Ubah</button></h4>
+                <h4 style="font-style: italic;">Alamat Saya<!--  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#login" style="float: right;"><i class="fa fa-user"></i>    Hapus</button>
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#login" style="float: right; margin-right: 15px;"><i class="fa fa-user"></i>    Ubah</button> --></h4>
 
                 <form action="#">
                     <div class="row">
@@ -107,3 +107,4 @@
             </div>
         </div>
     </section>
+

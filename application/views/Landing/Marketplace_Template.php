@@ -12,6 +12,9 @@
     <!-- Google Font -->
     <link href="<?php echo base_url();?>/assets/Markethttps://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
+    <link href="<?php echo base_url();?>/assets/img/favicon.png" rel="icon">
+    <link href="<?php echo base_url();?>/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
     <!-- Css Styles -->
     <link rel="stylesheet" href="<?php echo base_url();?>/assets/Market/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="<?php echo base_url();?>/assets/Market/css/font-awesome.min.css" type="text/css">
@@ -45,17 +48,21 @@
                                     <span><?php echo $this->session->userdata('username'); ?></span>
                 <li>
                     <div class="header__top__right__auth">
-                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#login"><i class="fa fa-user"></i>    Login</button>
-                        <span><?php echo $this->session->userdata('nama'); ?></span>    
+                        <i class="fa fa-user" data-toggle="modal" data-target="#login"></i>
                     </div>
+                </li>
+                <li>
+                    <span><a href="<?php echo base_url('index.php/login/logout'); ?>"><?php echo $this->session->userdata('username'); ?></a></span>
                 </li>
             </ul>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="<?php echo base_url('index.php/Marketplace'); ?>">Home</a></li>
+                <li><a href="<?php echo base_url('index.php/Preorder'); ?>">Pre Order</a></li>
+                <li><a href="<?php echo base_url('index.php/Lelang'); ?>">Lelang</a></li>
                 <li><a href="<?php echo base_url('index.php/Activity'); ?>">Activity</a></li>
-                <li><a href="<?php echo base_url('index.php/account'); ?>">Account</a></li>
+                <li><a href="<?php echo base_url('index.php/Account'); ?>">Account</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -73,27 +80,29 @@
                         <a href="<?php echo base_url('index.php/Marketplace'); ?>"><img src="<?php echo base_url();?>/assets/Market/img/logo.png" alt=""></a>
                     </div>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="<?php echo base_url('index.php/Marketplace'); ?>">Home</a></li>
-                            <li><a href="<?php echo base_url('index.php/Activity'); ?>">Activity</a></li>
-                            <li><a href="<?php echo base_url('index.php/account'); ?>">Account</a></li>
+                            <li style="margin-right: 30px;" class="active"><a href="<?php echo base_url('index.php/Marketplace'); ?>">Home</a></li>
+                            <li style="margin-right: 30px;"><a href="<?php echo base_url('index.php/Preorder'); ?>">Pre Order</a></li>
+                            <li style="margin-right: 30px;"><a href="<?php echo base_url('index.php/Lelang'); ?>">Lelang</a></li>
+                            <li style="margin-right: 30px;"><a href="<?php echo base_url('index.php/Activity'); ?>">Activity</a></li>
+                            <li ><a href="<?php echo base_url('index.php/Account'); ?>">Account</a></li>
                         </ul>
                     </nav>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="<?php echo base_url('index.php/favorit'); ?>"><i class="fa fa-heart"></i> </a></li>
-                            <li><a href="<?php echo base_url('index.php/cart'); ?>"><i class="fa fa-shopping-bag"></i></a></li>
-                            <li><a href="<?php echo base_url('index.php/diskon'); ?>"><i class="fa fa-tags"></i> </a></li>
-                            <li>
+                            <li style="margin-right: 15px;"><a href="<?php echo base_url('index.php/favorit'); ?>"><i class="fa fa-heart"></i> </a></li>
+                            <li style="margin-right: 15px;"><a href="<?php echo base_url('index.php/cart'); ?>"><i class="fa fa-shopping-bag"></i></a></li>
+                            <li style="margin-right: 15px;"><a href="<?php echo base_url('index.php/diskon'); ?>"><i class="fa fa-tags"></i></a></li>
+                            <li style="margin-right: 15px;">
                                 <div class="header__top__right__auth">
                                     <i class="fa fa-user" data-toggle="modal" data-target="#login"></i>
                                 </div>
                             </li>
-                            <li>
+                            <li >
                                 <span><a href="<?php echo base_url('index.php/login/logout'); ?>"><?php echo $this->session->userdata('username'); ?></a></span>
                             </li>
                             

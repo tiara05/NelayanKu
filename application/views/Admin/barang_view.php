@@ -44,7 +44,7 @@
 											<td>Rp '.$b->harga.',-</td>
 											<td>
 												<a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal_ubah_buku" onclick="prepare_ubah_buku('.$b->id_barang.')">Ubah</a>
-												<a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal_hapus_buku" onclick="prepare_hapus_buku('.$b->id_barang.')">hapus</a>
+												
 											</td>
 										</tr>
 									';
@@ -101,7 +101,7 @@
 					?>	        		
 	        	</select>
 	        	<br>
-	        	<input type="file" class="form-control" placeholder="Foto" name="fotoikan">
+	        	<input type="text" class="form-control" placeholder="Foto" name="fotoikan">
 
 	      </div>
 	      <div class="modal-footer">
@@ -122,29 +122,30 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Ubah Buku</h4>
       </div>
-      <form action="<?php echo base_url('index.php/buku/ubah'); ?>" method="post" enctype="multipart/form-data">
+      <form action="<?php echo base_url('index.php/Barang_admin/ubah'); ?>" method="post" enctype="multipart/form-data">
 	      <div class="modal-body">
-	        	<input type="hidden" name="ubah_id_buku"  id="ubah_id_buku">
-	        	<br>
-	        	<input type="text" class="form-control" placeholder="Kode Buku" name="ubah_kode_buku"  id="ubah_kode_buku">
-	        	<br>
-	        	<input type="text" class="form-control" placeholder="Judul" name="ubah_judul"  id="ubah_judul">
-	        	<br>
-	        	<input type="text" class="form-control" placeholder="Tahun" name="ubah_tahun" id="ubah_tahun">
-	        	<br>
-	        	<input type="text" class="form-control" placeholder="Penulis" name="ubah_penulis" id="ubah_penulis">
-	        	<br>
-	        	<input type="text" class="form-control" placeholder="Penerbit" name="ubah_penerbit" id="ubah_penerbit">
+	      		<input type="hidden" class="form-control"  name="ubah_id" id="ubah_id">
+	        	<input type="text" class="form-control" placeholder="Nama barang" name="ubah_nama_barang" id="ubah_nama_barang">
 	        	<br>
 	        	<input type="text" class="form-control" placeholder="Stok" name="ubah_stok" id="ubah_stok">
 	        	<br>
 	        	<input type="text" class="form-control" placeholder="Harga" name="ubah_harga" id="ubah_harga">
 	        	<br>
-	        	<select name="ubah_kategori" id="ubah_kategori" class="form-control">
+	        	<select name="ubah_kategori" class="form-control" id="ubah_kategori">
 					<?php
 						foreach ($kategori as $k) {
 							echo '
-								<option value="'.$k->id_kat.'">'.$k->nama_kat.'</option>
+								<option value="'.$k->id_kategori.'">'.$k->namakategori.'</option>
+							';
+						}
+					?>	        		
+	        	</select>
+	        	<br>
+	        	<select name="ubah_nelayan" class="form-control" id="ubah_nelayan">
+					<?php
+						foreach ($nelayan as $n) {
+							echo '
+								<option value="'.$n->id_nelayan.'">'.$n->namanelayan.'</option>
 							';
 						}
 					?>	        		
@@ -169,10 +170,10 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Konfirmasi Hapus Buku</h4>
       </div>
-      <form action="<?php echo base_url('index.php/buku/hapus'); ?>" method="post">
+      <form action="<?php echo base_url('index.php/Barang_admin/hapus'); ?>" method="post">
 	      <div class="modal-body">
-	        	<input type="hidden" name="hapus_id_buku"  id="hapus_id_buku">
-	        	<p>Apakah anda yakin menghapus buku <b><span id="hapus_judul"></span></b> ?</p>
+	        	<input type="hidden" name="hapus_id_barang"  id="hapus_id_barang">
+	        	<p>Apakah anda yakin menghapus barang <b><span id="hapus_nama"></span></b> ?</p>
 	      </div>
 	      <div class="modal-footer">
 	        <input type="submit" class="btn btn-danger" name="submit" value="YA">
@@ -188,39 +189,33 @@
 	
 	function prepare_ubah_buku(id)
 	{
-		$("#ubah_id_buku").empty();
-		$("#ubah_kode_buku").empty();
-		$("#ubah_judul").empty();
-		$("#ubah_tahun").empty();	
-		$("#ubah_penulis").empty();
-		$("#ubah_penerbit").empty();
-		$("#ubah_kategori").val();
+		$("#ubah_id").empty();
+		$("#ubah_nama_barang").empty();
 		$("#ubah_stok").empty();
-		$("#ubah_harga").empty();
+		$("#ubah_harga").empty();	
+		$("#ubah_kategori").val();
+		$("#ubah_nelayan").val();
 		$("#data_foto").empty();
 
-		$.getJSON('<?php echo base_url(); ?>index.php/buku/get_data_buku_by_id/' + id,  function(data){
-			$("#ubah_id_buku").val(data.id_buku);
-			$("#ubah_kode_buku").val(data.kode_buku);
-			$("#ubah_judul").val(data.judul);
-			$("#ubah_tahun").val(data.tahun);
-			$("#ubah_penulis").val(data.penulis);
-			$("#ubah_penerbit").val(data.penerbit);
-			$("#ubah_kategori").val(data.id_kat);
+		$.getJSON('<?php echo base_url(); ?>index.php/Barang_admin/get_data_buku_by_id/' + id,  function(data){
+			$("#ubah_id").val(data.id_barang);
+			$("#ubah_nama_barang").val(data.namabarang);
 			$("#ubah_stok").val(data.stok);
 			$("#ubah_harga").val(data.harga);
-			$("#data_foto").html('<img src="<?php echo base_url(); ?>assets/cover_buku/' + data.foto + '" width="50px" >');
+			$("#ubah_kategori").val(data.id_kategori);
+			$("#ubah_nelayan").val(data.id_nelayan);
+			$("#data_foto").html('<img src="<?php echo base_url(); ?>assets/Admin/fotoikan/' + data.fotoikan + '" width="100px" >');
 		});
 	}
 
 	function prepare_hapus_buku(id)
 	{
-		$("#hapus_id_buku").empty();
-		$("#hapus_judul").empty();
+		$("#hapus_id_barang").empty();
+		$("#hapus_nama").empty();
 
-		$.getJSON('<?php echo base_url(); ?>index.php/buku/get_data_buku_by_id/' + id,  function(data){
-			$("#hapus_id_buku").val(data.id_buku);
-			$("#hapus_judul").text(data.judul);
+		$.getJSON('<?php echo base_url(); ?>index.php/Barang_admin/get_data_buku_by_id/' + id,  function(data){
+			$("#hapus_id_barang").val(data.id_barang);
+			$("#hapus_nama").text(data.namabarang);
 		});
 	}
 </script>

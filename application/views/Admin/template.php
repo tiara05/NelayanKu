@@ -17,8 +17,8 @@
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
-	<link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url(); ?>/assets/Admin/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url(); ?>/assets/Admin/img/favicon.png">
+	<link href="<?php echo base_url();?>/assets/img/favicon.png" rel="icon">
+  	<link href="<?php echo base_url();?>/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
 	<!-- Javascript -->
 	<script src="<?php echo base_url(); ?>/assets/Admin/vendor/jquery/jquery.min.js"></script>
@@ -61,7 +61,12 @@
 									<li><a href="<?php echo base_url('index.php/dashboard'); ?>" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 									<li><a href="<?php echo base_url('index.php/kategori_admin'); ?>" class=""><i class="lnr lnr-code"></i> <span>Data Kategori</span></a></li>
 									<li><a href="<?php echo base_url('index.php/Barang_admin'); ?>" class=""><i class="lnr lnr-code"></i> <span>Data Barang</span></a></li>
+									<li><a href="<?php echo base_url('index.php/Promo_admin'); ?>" class=""><i class="lnr lnr-code"></i> <span>Data Promo</span></a></li>
 									<li><a href="<?php echo base_url('index.php/Nelayan_admin'); ?>" class=""><i class="lnr lnr-code"></i> <span>Data Nelayan</span></a></li>
+									<li><a href="<?php echo base_url('index.php/Preorder_admin'); ?>" class=""><i class="lnr lnr-code"></i> <span>Data Pre Order</span></a></li>
+									<li><a href="<?php echo base_url('index.php/Transaksi_admin'); ?>" class=""><i class="lnr lnr-code"></i> <span>Data Transaksi</span></a></li>
+									<li><a href="<?php echo base_url('index.php/Statistika_admin'); ?>" class=""><i class="lnr lnr-code"></i> <span>Statistika Data Penjualan</span></a></li>
+
 					</ul>
 				</nav>
 			</div>

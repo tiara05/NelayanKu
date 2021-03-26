@@ -11,10 +11,14 @@ Class Activity extends CI_Controller {
 
 	public function index()
 	{
-		$data['main_view'] = "Landing/activity";
-		// $data['account'] = $this->account_model->get_account();
- 		// $data['favorit'] = $this->Activity_model->get_activity();
-		$this->load->view('landing/marketplace_template', $data);
+		if($this->session->userdata('logged_in') == TRUE){
+			$data['main_view'] = "Landing/activity";
+			// $data['account'] = $this->account_model->get_account();
+	 		// $data['favorit'] = $this->Activity_model->get_activity();
+			$this->load->view('landing/marketplace_template', $data);
+		}else {
+			redirect('Marketplace/index');
+		}
 	}
 
 	
