@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2021 at 01:36 PM
+-- Generation Time: Mar 26, 2021 at 07:25 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -45,13 +45,14 @@ CREATE TABLE `barang` (
 
 INSERT INTO `barang` (`id_barang`, `namabarang`, `stok`, `id_kategori`, `fotoikan`, `id_nelayan`, `harga`, `filter`, `Deskripsi`) VALUES
 (1, 'Ikan Gurami', 10, 2, 'gurami.jpg', 1, 15000, 'Paling Laku', 'Ikan gurami segar langsung ambil dari nelayan. 1 ekor gurami berat 7 - 8 ons. '),
-(2, 'Ikan Mujair', 0, 2, 'mujair.png', 2, 5000, 'Diskon', 'Ikan Mujair segar langsung ambil dari nelayan. 1 kg Mujair isi 10-15 ekor. '),
+(2, 'Ikan Mujair', 11, 2, 'mujair.png', 2, 5000, 'Diskon', 'Ikan Mujair segar langsung ambil dari nelayan. 1 kg Mujair isi 10-15 ekor. '),
 (3, 'Ikan Kakap', 4, 1, 'kakap.jpg', 1, 50000, 'Paling Laku', 'Ikan Kakap segar langsung ambil dari nelayan. 1 kg Kakap isi 1 ekor. '),
-(4, 'Ikan Lele', 2, 2, 'teri.jpeg', 2, 10500, 'Paling Laku', 'Ikan Lele segar langsung ambil dari nelayan. 1 kg Lele isi 10-15 ekor. '),
+(4, 'Ikan Lele', 1, 2, 'teri.jpeg', 2, 10500, 'Paling Laku', 'Ikan Lele segar langsung ambil dari nelayan. 1 kg Lele isi 10-15 ekor. '),
 (9, 'Ikan Kembung', 3, 1, 'kembung.jpg', 2, 35000, 'Paling Laku', 'Ikan Mujair segar langsung ambil dari nelayan. 1 kg Mujair isi 10-15 ekor. '),
 (10, 'Kerang Darah', 6, 2, 'kerangdarah.jpg', 1, 34000, 'Diskon', 'Kerang darah segar langsung ambil dari nelayan. 1 kg kerang darah isi 10-15 biji. '),
 (11, 'Kerupuk Kemplang', 15, 4, 'kerupukkemplang.jpg', 1, 13500, 'Diskon', 'Kerupuk kemplang renyah dan nikmat dari ikan tengiri yang super segar. Kemasan 1 kg '),
-(12, 'Keripik Teri', 4, 4, 'keripikteri.jpg', 2, 34000, 'Diskon', 'Kerupuk kemplang renyah dan nikmat dari ikan teri asli yang super segar. Kemasan 1 kg ');
+(12, 'Keripik Teri', 4, 4, 'keripikteri.jpg', 2, 34000, 'Diskon', 'Kerupuk kemplang renyah dan nikmat dari ikan teri asli yang super segar. Kemasan 1 kg '),
+(13, 'Ikan Gabus', 50, 1, 'Ikan gabus.png', 1, 7800, 'Paling Laku', '');
 
 -- --------------------------------------------------------
 
@@ -75,81 +76,16 @@ CREATE TABLE `detil_transaksi` (
   `id_detil_transaksi` int(11) NOT NULL,
   `id_transaksi` int(11) NOT NULL,
   `id_barang` int(11) NOT NULL,
-  `jumlah` int(11) NOT NULL
+  `jumlah` int(11) NOT NULL,
+  `status` varchar(20) NOT NULL DEFAULT 'Pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `detil_transaksi`
 --
 
-INSERT INTO `detil_transaksi` (`id_detil_transaksi`, `id_transaksi`, `id_barang`, `jumlah`) VALUES
-(17, 14, 2, 3),
-(18, 15, 2, 2),
-(19, 16, 2, 0),
-(20, 16, 3, 3),
-(21, 17, 2, 0),
-(22, 17, 3, 3),
-(23, 18, 2, 0),
-(24, 18, 3, 3),
-(25, 19, 2, 2),
-(26, 19, 3, 0),
-(27, 20, 2, 0),
-(28, 20, 3, 2),
-(29, 21, 2, 0),
-(30, 21, 3, 2),
-(31, 22, 2, 1),
-(32, 22, 3, 0),
-(33, 23, 2, 1),
-(34, 23, 3, 2),
-(35, 24, 2, 0),
-(36, 24, 3, 4),
-(37, 25, 2, 0),
-(38, 25, 3, 0),
-(39, 25, 4, 2),
-(40, 26, 2, 0),
-(41, 26, 3, 0),
-(42, 26, 4, 2),
-(43, 27, 2, 0),
-(44, 27, 3, 0),
-(45, 27, 4, 2),
-(46, 28, 9, 2),
-(47, 29, 3, 2),
-(48, 30, 3, 5),
-(49, 31, 3, 2),
-(50, 32, 1, 3),
-(51, 33, 1, 3),
-(52, 33, 4, 3),
-(53, 34, 1, 3),
-(54, 34, 4, 3),
-(55, 35, 1, 1),
-(56, 35, 4, 2),
-(57, 36, 11, 2),
-(58, 37, 11, 2),
-(59, 38, 11, 2),
-(60, 39, 11, 2),
-(61, 40, 11, 3),
-(62, 41, 11, 1),
-(63, 42, 11, 3),
-(64, 43, 11, 1),
-(65, 44, 11, 1),
-(66, 45, 11, 1),
-(67, 45, 12, 1),
-(68, 46, 11, 1),
-(69, 46, 12, 2),
-(70, 47, 11, 1),
-(71, 47, 12, 2),
-(72, 48, 11, 1),
-(73, 48, 12, 2),
-(74, 49, 11, 1),
-(75, 49, 12, 0),
-(76, 50, 11, 1),
-(77, 50, 12, 0),
-(78, 51, 11, 1),
-(79, 51, 12, 1),
-(80, 52, 11, 1),
-(81, 52, 12, 1),
-(82, 53, 9, 2),
-(83, 54, 9, 2);
+INSERT INTO `detil_transaksi` (`id_detil_transaksi`, `id_transaksi`, `id_barang`, `jumlah`, `status`) VALUES
+(84, 55, 4, 1, 'Setuju');
 
 -- --------------------------------------------------------
 
@@ -230,7 +166,8 @@ CREATE TABLE `pencariikan` (
 
 INSERT INTO `pencariikan` (`id_nelayan`, `namanelayan`, `foto`) VALUES
 (1, 'Supardi', 'Supardi.jpg'),
-(2, 'Susanto', 'Susanto.jpg');
+(2, 'Susanto', 'Susanto.jpg'),
+(3, 'Susi', 'susi.png');
 
 -- --------------------------------------------------------
 
@@ -252,6 +189,39 @@ CREATE TABLE `pengguna` (
 
 INSERT INTO `pengguna` (`id_pengguna`, `nama`, `username`, `password`, `level`) VALUES
 (1, 'tiara', 'tiara', 'tiara', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `preeorder`
+--
+
+CREATE TABLE `preeorder` (
+  `id_preeorder` int(11) NOT NULL,
+  `id_barang` int(11) NOT NULL,
+  `nama` varchar(22) NOT NULL,
+  `alamat` text NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `kirim` date NOT NULL,
+  `telepon` varchar(11) NOT NULL,
+  `status` varchar(20) NOT NULL DEFAULT 'Pending'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `preeorder`
+--
+
+INSERT INTO `preeorder` (`id_preeorder`, `id_barang`, `nama`, `alamat`, `jumlah`, `kirim`, `telepon`, `status`) VALUES
+(1, 1, 'tiararahmani', 'sidoarjo', 2, '2021-05-05', '08133249622', 'Pending'),
+(2, 3, 'tiararahmani', 'fkb', 3, '2022-03-31', '08133249622', 'Setuju');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `preorder`
+--
+-- Error reading structure for table nelayanku.preorder: #1932 - Table 'nelayanku.preorder' doesn't exist in engine
+-- Error reading data for table nelayanku.preorder: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `nelayanku`.`preorder`' at line 1
 
 -- --------------------------------------------------------
 
@@ -295,54 +265,7 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `id_user`, `tgl_beli`, `nama_pembeli`) VALUES
-(7, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(8, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(9, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(10, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(11, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(12, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(13, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(14, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(15, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(16, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(17, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(18, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(19, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(20, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(21, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(22, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(23, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(24, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(25, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(26, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(27, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(28, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(29, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(30, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(31, NULL, '0000-00-00 00:00:00', 'tiararahmani'),
-(32, NULL, '0000-00-00 00:00:00', ''),
-(33, NULL, '0000-00-00 00:00:00', ''),
-(34, NULL, '0000-00-00 00:00:00', ''),
-(35, NULL, '0000-00-00 00:00:00', ''),
-(36, NULL, '0000-00-00 00:00:00', ''),
-(37, NULL, '0000-00-00 00:00:00', ''),
-(38, NULL, '0000-00-00 00:00:00', ''),
-(39, NULL, '0000-00-00 00:00:00', ''),
-(40, NULL, '0000-00-00 00:00:00', 'harya'),
-(41, NULL, '0000-00-00 00:00:00', 'harya'),
-(42, NULL, '0000-00-00 00:00:00', 'harya'),
-(43, NULL, '0000-00-00 00:00:00', 'harya'),
-(44, NULL, '0000-00-00 00:00:00', 'harya'),
-(45, NULL, '2021-03-20 15:23:37', 'harya'),
-(46, NULL, '2021-03-20 15:24:47', 'harya'),
-(47, NULL, '2021-03-20 15:24:50', 'harya'),
-(48, NULL, '2021-03-20 15:25:56', 'harya'),
-(49, NULL, '2021-03-20 15:28:54', 'harya'),
-(50, NULL, '2021-03-20 15:28:57', 'harya'),
-(51, NULL, '2021-03-20 15:31:33', 'harya'),
-(52, NULL, '2021-03-20 15:31:58', 'harya'),
-(53, NULL, '2021-03-20 18:47:38', ''),
-(54, NULL, '2021-03-20 18:47:58', '');
+(55, NULL, '2021-03-25 22:41:42', 'tiararahmani');
 
 -- --------------------------------------------------------
 
@@ -433,6 +356,12 @@ ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`id_pengguna`);
 
 --
+-- Indexes for table `preeorder`
+--
+ALTER TABLE `preeorder`
+  ADD PRIMARY KEY (`id_preeorder`);
+
+--
 -- Indexes for table `promo`
 --
 ALTER TABLE `promo`
@@ -459,19 +388,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `detil_transaksi`
 --
 ALTER TABLE `detil_transaksi`
-  MODIFY `id_detil_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id_detil_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `favorit`
@@ -489,13 +418,13 @@ ALTER TABLE `filter`
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `pencariikan`
 --
 ALTER TABLE `pencariikan`
-  MODIFY `id_nelayan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_nelayan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
@@ -504,16 +433,22 @@ ALTER TABLE `pengguna`
   MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `preeorder`
+--
+ALTER TABLE `preeorder`
+  MODIFY `id_preeorder` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `promo`
 --
 ALTER TABLE `promo`
-  MODIFY `id_promo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_promo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `user`
