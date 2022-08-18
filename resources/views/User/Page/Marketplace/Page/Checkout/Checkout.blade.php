@@ -56,6 +56,7 @@
                                     <th scope="col" colspan="3" style="font-size: 25px">Produk Dipesan</th>
                                     <td class="text-center"><span style="color: #BDBDBD;">Harga Satuan</span></td>
                                     <td class="text-center"><span style="color: #BDBDBD;">Jumlah</span></td>
+                                    <td class="text-center"><span style="color: #BDBDBD;">Pengolahan</span></td>
                                     <td class="text-center"><span style="color: #BDBDBD;">Subtotal Produk</span></td>
                                 </tr>
                                 
@@ -80,7 +81,14 @@
                                                     <td style="">{{$ts->produk->nama_produk}}</td>
                                                     <td style="">@currency($ts->produk->harga)</td>
                                                     <td style="">{{$ts->jumlah}}</td>
-                                                    <td style="">Rp {{$ts->produk->harga * $ts->jumlah}}</td>
+                                                    <td style="">{{$ts->pengolahan}}</td>
+                                                    @if($ts->pengolahan == "Langsung")
+                                                        <td style="">@currency($ts->produk->hargalangsung * $ts->jumlah)</td>
+                                                    @elseif($ts->pengolahan == "Dibersihkan")
+                                                        <td style="">@currency($ts->produk->hargabersih * $ts->jumlah)</td>
+                                                    @elseif($ts->pengolahan == "Fillet")
+                                                        <td style="">@currency($ts->produk->hargafillet * $ts->jumlah)</td>
+                                                    @endif
                                                 </tr>
                                         @endif  
                                     @endforeach
@@ -130,7 +138,7 @@
                                 </div>
                             
                                 <div class="flex-grow-1 text-end">
-                                    <h6>@currency($tot+0)</h6> 
+                                    <h6>@currency($tot+25000)</h6> 
                                 </div>
                             </div>
                         </div>

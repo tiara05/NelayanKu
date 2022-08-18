@@ -32,10 +32,7 @@ class MarketplaceCheckoutController extends Controller
 
             $rt = Cart::with(['produk'])->whereIn('id_nelayan', $cart)->where('id_user', Auth::user()->id)->get();
 
-            $tot = Cart::where('id_user', Auth::user()->id)
-            ->select('produks.harga', 'produks.id as id_produk', 'produks.harga', 'carts.jumlah', 'carts.id as id')
-            ->join('produks', 'produks.id', '=', 'carts.id_produk')
-            ->sum(Cart::raw('produks.harga * carts.jumlah'));
+            $tot = Cart::sum('harga');
 
             return view('User.Page.Marketplace.Page.Checkout.Checkout', compact('ca', 'tot',  'user', 'rt', 'cart'));
 
@@ -48,10 +45,7 @@ class MarketplaceCheckoutController extends Controller
             $cr = Cart::with(['produk'])->where('id_user', Auth::user()->id)->get();
             $numberorder = Str::random(5);
 
-            $tot = Cart::where('id_user', Auth::user()->id)
-                ->select('produks.harga', 'produks.id as id_produk', 'produks.harga', 'carts.jumlah', 'carts.id as id')
-                ->join('produks', 'produks.id', '=', 'carts.id_produk')
-                ->sum(Cart::raw('produks.harga * carts.jumlah'));
+            $tot = Cart::sum('harga');
 
             $order = new Pembayaran;
             $order->id_user = $user_id;
@@ -67,6 +61,7 @@ class MarketplaceCheckoutController extends Controller
                 $ordershop->id_produk = $c->id_produk;
                 $ordershop->id_nelayan = $c->id_nelayan;
                 $ordershop->jumlah =  $c->jumlah;
+                $ordershop->pengolahan =  $c->pengolahan;
                 $ordershop->id_user = $user_id;
                 $ordershop->no_order = $numberorder;
                 $ordershop->id_pembayaran = $order->id;

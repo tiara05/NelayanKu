@@ -24,11 +24,8 @@ class MarketplaceCartController extends Controller
 
             $rt = Cart::with(['produk'])->whereIn('id_nelayan', $cart)->where('id_user', Auth::user()->id)->get();
 
-            $tot = Cart::where('id_user', Auth::user()->id)
-            ->select('produks.harga', 'produks.id as id_produk', 'produks.harga', 'carts.jumlah', 'carts.id as id')
-            ->join('produks', 'produks.id', '=', 'carts.id_produk')
-            ->sum(Cart::raw('produks.harga * carts.jumlah'));
-
+            $tot = Cart::sum('harga');
+            
             // dd($rt);
             return view('User.Page.Marketplace.Page.Cart.Cart', compact('tot', 'ca', 'rt'));
     }
@@ -37,9 +34,15 @@ class MarketplaceCartController extends Controller
     {
             $request->validate([
                 'jumlah'        => 'required',
+                'pengolahan'    => 'required',
             ]);
 
             $produk = Produk::find($id)->id;
+
+            $langsung = Produk::find($id)->hargalangsung;
+            $bersih = Produk::find($id)->hargabersih;
+            $fillet = Produk::find($id)->hargafillet;
+
             $user_id = Auth::user()->id;
 
             $pro = Produk::find($id);
@@ -69,6 +72,17 @@ class MarketplaceCartController extends Controller
                     $cart->id_user = $user_id;
                     $cart->id_nelayan = $pro->id_nelayan;
                     $cart->jumlah = $request->jumlah;
+                    $cart->pengolahan = $request->pengolahan;
+                    if($request->pengolahan == "Langsung"){
+                        $cart->harga = $langsung;
+                    }
+                    elseif($request->pengolahan == "Dibersihkan"){
+                        $cart->harga = $bersih;
+                    }
+                    elseif($request->pengolahan == "Fillet"){
+                        $cart->harga = $fillet;
+                    }
+                    
                     
                     $cart->save();
                     Session::put('cart', $cart);

@@ -16,7 +16,10 @@
                         <th>No</th>
                         <th>Nama Produk</th>
                         <th>Stok</th>
-                        <th>Harga</th>
+                        <th>Harga /kg</th>
+                        <th>Harga Langsung</th>
+                        <th>Harga Dibersihkan</th>
+                        <th>Harga Fillet</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
@@ -35,6 +38,9 @@
                         {{$pr->stok_produk}}
                         </td>
                         <td>@currency($pr->harga)</td>
+                        <td>@currency($pr->hargalangsung)</td>
+                        <td>@currency($pr->hargabersih)</td>
+                        <td>@currency($pr->hargafillet)</td>
                         <td>
                         <button type="button" class="btn btn-warning" onClick="show({{ $pr->id }})">
                         <i class="bx bx-edit-alt me-2"></i>Ubah

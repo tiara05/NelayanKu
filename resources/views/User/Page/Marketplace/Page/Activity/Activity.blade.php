@@ -111,6 +111,7 @@
                                                         <td class="text-center"><span style="color: #BDBDBD;">Nama Produk</span></td>
                                                         <td class="text-center"><span style="color: #BDBDBD;">Harga Satuan</span></td>
                                                         <td class="text-center"><span style="color: #BDBDBD;">Jumlah</span></td>
+                                                        <td class="text-center"><span style="color: #BDBDBD;">Pengolahan</span></td>
                                                         <td class="text-center"><span style="color: #BDBDBD;">Subtotal Produk</span></td>
                                                     </tr>
                                                     
@@ -131,7 +132,14 @@
                                                                 <td style="line-height: 8rem;text-align: center">{{$ts->produk->nama_produk}}</td>
                                                                 <td style="line-height: 8rem;text-align: center">@currency($ts->produk->harga)</td>
                                                                 <td style="line-height: 8rem;text-align: center">{{$ts->jumlah}}</td>
-                                                                <td style="line-height: 8rem;text-align: center">@currency($ts->produk->harga * $ts->jumlah)</td>
+                                                                <td style="line-height: 8rem;text-align: center">{{$ts->pengolahan}}</td>
+                                                                @if($ts->pengolahan == "Langsung")
+                                                                    <td style="line-height: 8rem;text-align: center">@currency($ts->produk->hargalangsung * $ts->jumlah)</td>
+                                                                @elseif($ts->pengolahan == "Dibersihkan")
+                                                                    <td style="line-height: 8rem;text-align: center">@currency($ts->produk->hargabersih * $ts->jumlah)</td>
+                                                                @elseif($ts->pengolahan == "Fillet")
+                                                                    <td style="line-height: 8rem;text-align: center">@currency($ts->produk->hargafillet * $ts->jumlah)</td>
+                                                                @endif
                                                                 
                                                             </tr>
                                                             @endif
@@ -182,6 +190,7 @@
                                                     <td class="text-center"><span style="color: #BDBDBD;">Nama Produk</span></td>
                                                     <td class="text-center"><span style="color: #BDBDBD;">Harga Satuan</span></td>
                                                     <td class="text-center"><span style="color: #BDBDBD;">Jumlah</span></td>
+                                                    <td class="text-center"><span style="color: #BDBDBD;">Pengolahan</span></td>
                                                     <td class="text-center"><span style="color: #BDBDBD;">Subtotal Produk</span></td>
                                                 </tr>
                                                 
@@ -202,7 +211,14 @@
                                                             <td style="line-height: 8rem;text-align: center">{{$ts->produk->nama_produk}}</td>
                                                             <td style="line-height: 8rem;text-align: center">@currency($ts->produk->harga)</td>
                                                             <td style="line-height: 8rem;text-align: center">{{$ts->jumlah}}</td>
-                                                            <td style="line-height: 8rem;text-align: center">@currency($ts->produk->harga * $ts->jumlah)</td>
+                                                            <td style="line-height: 8rem;text-align: center">{{$ts->pengolahan}}</td>
+                                                                @if($ts->pengolahan == "Langsung")
+                                                                    <td style="line-height: 8rem;text-align: center">@currency($ts->produk->hargalangsung * $ts->jumlah)</td>
+                                                                @elseif($ts->pengolahan == "Dibersihkan")
+                                                                    <td style="line-height: 8rem;text-align: center">@currency($ts->produk->hargabersih * $ts->jumlah)</td>
+                                                                @elseif($ts->pengolahan == "Fillet")
+                                                                    <td style="line-height: 8rem;text-align: center">@currency($ts->produk->hargafillet * $ts->jumlah)</td>
+                                                                @endif
                                                             
                                                         </tr>
                                                         @endif
@@ -253,6 +269,7 @@
                                                     <td class="text-center"><span style="color: #BDBDBD;">Nama Produk</span></td>
                                                     <td class="text-center"><span style="color: #BDBDBD;">Harga Satuan</span></td>
                                                     <td class="text-center"><span style="color: #BDBDBD;">Jumlah</span></td>
+                                                    <td class="text-center"><span style="color: #BDBDBD;">Pengolahan</span></td>
                                                     <td class="text-center"><span style="color: #BDBDBD;">Subtotal Produk</span></td>
                                                 </tr>
                                                 
@@ -273,7 +290,14 @@
                                                             <td style="line-height: 8rem;text-align: center">{{$ts->produk->nama_produk}}</td>
                                                             <td style="line-height: 8rem;text-align: center">@currency($ts->produk->harga)</td>
                                                             <td style="line-height: 8rem;text-align: center">{{$ts->jumlah}}</td>
-                                                            <td style="line-height: 8rem;text-align: center">@currency($ts->produk->harga * $ts->jumlah)</td>
+                                                            <td style="line-height: 8rem;text-align: center">{{$ts->pengolahan}}</td>
+                                                                @if($ts->pengolahan == "Langsung")
+                                                                    <td style="line-height: 8rem;text-align: center">@currency($ts->produk->hargalangsung * $ts->jumlah)</td>
+                                                                @elseif($ts->pengolahan == "Dibersihkan")
+                                                                    <td style="line-height: 8rem;text-align: center">@currency($ts->produk->hargabersih * $ts->jumlah)</td>
+                                                                @elseif($ts->pengolahan == "Fillet")
+                                                                    <td style="line-height: 8rem;text-align: center">@currency($ts->produk->hargafillet * $ts->jumlah)</td>
+                                                                @endif
                                                             
                                                         </tr>
                                                         @endif
@@ -323,6 +347,7 @@
                                                     <td class="text-center"><span style="color: #BDBDBD;">Nama Produk</span></td>
                                                     <td class="text-center"><span style="color: #BDBDBD;">Harga Satuan</span></td>
                                                     <td class="text-center"><span style="color: #BDBDBD;">Jumlah</span></td>
+                                                    <td class="text-center"><span style="color: #BDBDBD;">Pengolahan</span></td>
                                                     <td class="text-center"><span style="color: #BDBDBD;">Subtotal Produk</span></td>
                                                 </tr>
                                                 
@@ -343,7 +368,14 @@
                                                             <td style="line-height: 8rem;text-align: center">{{$ts->produk->nama_produk}}</td>
                                                             <td style="line-height: 8rem;text-align: center">@currency($ts->produk->harga)</td>
                                                             <td style="line-height: 8rem;text-align: center">{{$ts->jumlah}}</td>
-                                                            <td style="line-height: 8rem;text-align: center">@currency($ts->produk->harga * $ts->jumlah)</td>
+                                                            <td style="line-height: 8rem;text-align: center">{{$ts->pengolahan}}</td>
+                                                                @if($ts->pengolahan == "Langsung")
+                                                                    <td style="line-height: 8rem;text-align: center">@currency($ts->produk->hargalangsung * $ts->jumlah)</td>
+                                                                @elseif($ts->pengolahan == "Dibersihkan")
+                                                                    <td style="line-height: 8rem;text-align: center">@currency($ts->produk->hargabersih * $ts->jumlah)</td>
+                                                                @elseif($ts->pengolahan == "Fillet")
+                                                                    <td style="line-height: 8rem;text-align: center">@currency($ts->produk->hargafillet * $ts->jumlah)</td>
+                                                                @endif
                                                             
                                                         </tr>
                                                         @endif
@@ -394,6 +426,7 @@
                                                     <td class="text-center"><span style="color: #BDBDBD;">Nama Produk</span></td>
                                                     <td class="text-center"><span style="color: #BDBDBD;">Harga Satuan</span></td>
                                                     <td class="text-center"><span style="color: #BDBDBD;">Jumlah</span></td>
+                                                    <td class="text-center"><span style="color: #BDBDBD;">Pengolahan</span></td>
                                                     <td class="text-center"><span style="color: #BDBDBD;">Subtotal Produk</span></td>
                                                 </tr>
                                                 
@@ -414,7 +447,14 @@
                                                             <td style="line-height: 8rem;text-align: center">{{$ts->produk->nama_produk}}</td>
                                                             <td style="line-height: 8rem;text-align: center">@currency($ts->produk->harga)</td>
                                                             <td style="line-height: 8rem;text-align: center">{{$ts->jumlah}}</td>
-                                                            <td style="line-height: 8rem;text-align: center">@currency($ts->produk->harga * $ts->jumlah)</td>
+                                                            <td style="line-height: 8rem;text-align: center">{{$ts->pengolahan}}</td>
+                                                                @if($ts->pengolahan == "Langsung")
+                                                                    <td style="line-height: 8rem;text-align: center">@currency($ts->produk->hargalangsung * $ts->jumlah)</td>
+                                                                @elseif($ts->pengolahan == "Dibersihkan")
+                                                                    <td style="line-height: 8rem;text-align: center">@currency($ts->produk->hargabersih * $ts->jumlah)</td>
+                                                                @elseif($ts->pengolahan == "Fillet")
+                                                                    <td style="line-height: 8rem;text-align: center">@currency($ts->produk->hargafillet * $ts->jumlah)</td>
+                                                                @endif
                                                             
                                                         </tr>
                                                         @endif

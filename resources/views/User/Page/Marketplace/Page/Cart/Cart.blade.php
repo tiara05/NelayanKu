@@ -29,6 +29,7 @@
                                     <th scope="col" colspan="3" style="font-size: 25px">List Keranjang</th>
                                     <td class="text-center"><span style="color: #BDBDBD;">Harga Satuan</span></td>
                                     <td class="text-center"><span style="color: #BDBDBD;">Jumlah</span></td>
+                                    <td class="text-center"><span style="color: #BDBDBD;">Pengolahan</span></td>
                                     <td class="text-center"><span style="color: #BDBDBD;">Subtotal Produk</span></td>
                                 </tr>
                                 
@@ -65,8 +66,14 @@
                                                             <a href="{{ route('cart.updateplus', $ts->id_produk) }}" type="button" id="add" class="add btn btn-link px-2"><i class="fa fa-plus"></i></a>
                                                         </div>
                                                     </td>
-                                                    <td style="">Rp {{$ts->produk->harga * $ts->jumlah}}</td>
-                                                    <td style="">{{$ts->status}}</td>
+                                                    <td style="">{{$ts->pengolahan}}</td>
+                                                    @if($ts->pengolahan == "Langsung")
+                                                        <td style="">@currency($ts->produk->hargalangsung * $ts->jumlah)</td>
+                                                    @elseif($ts->pengolahan == "Dibersihkan")
+                                                        <td style="">@currency($ts->produk->hargabersih * $ts->jumlah)</td>
+                                                    @elseif($ts->pengolahan == "Fillet")
+                                                        <td style="">@currency($ts->produk->hargafillet * $ts->jumlah)</td>
+                                                    @endif
                                                     <td style=""><a href="{{route('cart.delete', $ts->id)}}" type="button" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i class="fa fa-times" aria-hidden="true"></i></a></td>
                                                 </tr>
                                         @endif  

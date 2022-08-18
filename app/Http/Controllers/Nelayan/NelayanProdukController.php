@@ -40,7 +40,7 @@ class NelayanProdukController extends Controller
             'stokproduk'               => 'required',
             'hargaproduk'              => 'required',
             'detailproduk'             => 'required',
-            'kategori'              => 'required',
+            'kategori'                 => 'required',
         ]);
 
         $request->validate([
@@ -65,6 +65,18 @@ class NelayanProdukController extends Controller
             $produk->nama_produk         = $request->namaproduk;
             $produk->stok_produk         = $request->stokproduk;
             $produk->harga               = $request->hargaproduk;
+            if($request->kategori == 3)
+            {
+                $produk->hargalangsung       = "0";
+                $produk->hargabersih         = "0";
+                $produk->hargafillet         = "0";
+            }
+            else
+            {
+                $produk->hargalangsung       = $request->hargaproduk+($request->hargaproduk*0.5);
+                $produk->hargabersih         = $request->hargaproduk+($request->hargaproduk*1.5);
+                $produk->hargafillet         = $request->hargaproduk+($request->hargaproduk*3.2);
+            }
             $produk->detail_produk       = $request->detailproduk;
             $produk->id_kategori         = $request->kategori;
             $produk->id_nelayan          = $user_id;
