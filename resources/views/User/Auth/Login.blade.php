@@ -91,6 +91,13 @@
                           <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                         </div>
                       </div>
+                      <div style="margin-bottom: 20px">
+                        <center><a href="{{ '/auth/redirect'}}" style="text-decoration: none; ">
+                            <img src="path_to_google_logo.png" alt="Google Logo" style="width: 5%">
+                            Login with Google
+                        </a></center>
+                      </div>
+                      
                       <div class="mb-3">
                         <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
                       </div>

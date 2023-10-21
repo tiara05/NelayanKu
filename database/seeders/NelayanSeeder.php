@@ -18,9 +18,10 @@ class NelayanSeeder extends Seeder
         $nelayan = [
             [
                 'name'          => 'Budiman',
+                'username'          => 'Budiman',
                 'email'         => 'budiman@gmail.com',
                 'password'      => 'budiman12345',
-                'telepon'       => '0812456782',
+                'nomortelepon'       => '0812456782',
                 'alamat'        => 'Jl. Telekomunikasi No 8',
                 'provinsi'      => 'JAWA BARAT',
                 'kotakab'       => 'KABUPATEN BANDUNG',
@@ -30,9 +31,10 @@ class NelayanSeeder extends Seeder
             ],
             [
                 'name'          => 'Susanto',
+                'username'          => 'Susanto',
                 'email'         => 'susanto@gmail.com',
                 'password'      => 'susanto12345',
-                'telepon'       => '08123583021',
+                'nomortelepon'       => '08123583021',
                 'alamat'        => 'Jl. Mawar No 8',
                 'provinsi'      => 'JAWA TIMUR',
                 'kotakab'       => 'KABUPATEN MALANG',

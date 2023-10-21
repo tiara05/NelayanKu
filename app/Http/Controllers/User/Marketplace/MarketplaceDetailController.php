@@ -22,8 +22,6 @@ class MarketplaceDetailController extends Controller
 
         $produk = Produk::with(['nelayan'])->find($id);
 
-        $pr = Favorit::whereNotIn('id_produk', $produk)->get();
-
         if(session()->has('user')){
             $pro = Favorit::where('id_produk', $produk->id)->where('id_user', Auth::user()->id)->get();
         }
@@ -37,6 +35,6 @@ class MarketplaceDetailController extends Controller
         ->get();
 
         // dd($pro);
-        return view('User.Page.Marketplace.Page.Detail.Detail', compact('pro', 'produk', 'kategori', 'pr', 'review'));
+        return view('User.Page.Marketplace.Page.Detail.Detail', compact('pro', 'produk', 'kategori', 'review'));
     }
 }

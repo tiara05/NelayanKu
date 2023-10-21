@@ -25,10 +25,22 @@
 
 <!-- ======= Services Section ======= -->
 <section id="services" class="services p-0 pt-4">
-      <div class="container" data-aos="fade-up">
+        <div class="container" data-aos="fade-up">
+        
         <div class="row d-flex justify-content-center" >
             <div class="row d-flex justify-content-center" >
                 <div class="col-lg-3 ">
+                    <form class="form-inline mr-auto navbar-search" style="margin-bottom: 2%; " action="{{ route('marketplace.index') }}" method="GET"> 
+                    @csrf
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" style="height: 50px" placeholder="Search..." name="search">
+                            <div class="input-group-append" >
+                                <button class="btn btn-primary" type="submit" style="height: 50px" >
+                                    <i class="fas fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                     <div
                     class="nav  nav-tabs flex-column mb-4 "
                     id="v-tabs-tab"

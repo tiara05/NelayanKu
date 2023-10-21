@@ -52,6 +52,7 @@ use App\Http\Controllers\User\Marketplace\MarketplaceReviewController;
 |
 */
 
+
 Route::get('cities', [DependentDropdownController::class, 'cities'])->name('cities');
 Route::get('districts', [DependentDropdownController::class, 'districts'])->name('districts');
 Route::get('villages', [DependentDropdownController::class, 'villages'])->name('villages');
@@ -152,6 +153,9 @@ Route::prefix('nelayan')->group(function () {
     });
     
 });
+
+Route::get('auth/redirect', [UserLoginController::class, 'redirectToProvider']);
+Route::get('auth/callback', [UserLoginController::class, 'handleProviderCallback']);
 
 Route::get('loginuser', [UserLoginController::class, 'loginuser'])->name('loginuser');
 Route::post('proses_loginuser', [UserLoginController::class, 'proses_loginuser'])->name('proses_loginuser');
