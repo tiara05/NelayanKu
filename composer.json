@@ -13,7 +13,8 @@
         "laravel/sanctum": "^2.11",
         "laravel/socialite": "^5.9",
         "laravel/tinker": "^2.5",
-        "laravolt/indonesia": "^0.32.0"
+        "laravolt/indonesia": "^0.34.0",
+        "laravolt/laravolt": "^5.6"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

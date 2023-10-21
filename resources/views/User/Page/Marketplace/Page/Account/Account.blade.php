@@ -84,62 +84,47 @@
                             <div class="card-body">
                                 
                                     <div class="row">
-                                    <div class="mb-3 col-md-6">
-                                        <label for="nama" class="form-label">Nama Nelayan</label>
-                                        <input
-                                        class="form-control"
-                                        type="text"
-                                        id="nama"
-                                        name="nama"
-                                        value="{{($account->name)}}"
-                                        autofocus
-                                        />
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label for="email" class="form-label">E-mail</label>
-                                        <input
-                                        class="form-control"
-                                        type="text"
-                                        id="email"
-                                        name="email"
-                                        value="{{($account->email)}}"
-                                        placeholder="john.doe@example.com"
-                                        />
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label class="form-label" for="nomor">Nomor Telepon</label>
-                                        <div class="input-group input-group-merge">
-                                        <span class="input-group-text">+62</span>
-                                        <input
-                                            type="text"
-                                            id="telepon"
-                                            name="telepon"
+                                        <div class="mb-3 col-md-6">
+                                            <label for="nama" class="form-label">Nama User</label>
+                                            <input
                                             class="form-control"
-                                            placeholder="202 555 0111"
-                                            value="{{($account->telepon)}}"
-                                        />
+                                            type="text"
+                                            id="nama"
+                                            name="nama"
+                                            value="{{($account->name)}}"
+                                            autofocus
+                                            />
                                         </div>
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label for="alamat" class="form-label">Alamat Domisili</label>
-                                        <input type="text" class="form-control" id="alamat" name="alamat" value="{{($account->alamat)}}" placeholder="Address" />
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label for="provinsi" class="form-label">Provinsi</label>
-                                        <input type="text" class="form-control" id="provinsi" name="provinsi" value="{{($account->provinsi)}}" readonly />
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label for="kotakab" class="form-label">Kota/Kabupaten</label>
-                                        <input type="text" class="form-control" id="kota" name="kota" value="{{($account->kotakab)}}" readonly />
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label for="kecamatan" class="form-label">Kecamatan</label>
-                                        <input type="text" class="form-control" id="kecamatan" name="kecamatan" value="{{($account->kecamatan)}}" readonly />
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label for="desa" class="form-label">Desa</label>
-                                        <input type="text" class="form-control" id="desa" name="desa" value="{{($account->desa)}}" readonly />
-                                    </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label for="email" class="form-label">E-mail</label>
+                                            <input
+                                            class="form-control"
+                                            type="text"
+                                            id="email"
+                                            name="email"
+                                            value="{{($account->email)}}"
+                                            placeholder="john.doe@example.com"
+                                            />
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label" for="nomor">Nomor Telepon</label>
+                                            <div class="input-group input-group-merge">
+                                            <span class="input-group-text">+62</span>
+                                            <input
+                                                type="text"
+                                                id="telepon"
+                                                name="telepon"
+                                                class="form-control"
+                                                placeholder="202 555 0111"
+                                                value="{{($account->telepon)}}"
+                                            />
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label for="alamat" class="form-label">Alamat Domisili</label>
+                                            <input type="text" class="form-control" id="alamat" name="alamat" value="{{($account->alamat)}}" placeholder="Address" />
+                                        </div>
+                                        
                                     </div>
                                     <div class="mt-2">
                                     <button type="submit" class="btn me-2" style="background-color: #128FE2; color:white">Save changes</button>
@@ -151,6 +136,33 @@
                     </div>
                     <!-- /Account -->
                     </form>
+                                    <div class="row">
+                                        <div class="mb-3 col-md-12">
+                                            <hr>
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <h5>Detail Alamat</h5>
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <button class="btn" style="float:right;" onClick="show({{ $account->id }})">Ubah Alamat</button>
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label for="provinsi" class="form-label">Provinsi</label>
+                                            <input type="text" class="form-control" id="provinsi" name="provinsi" value="{{($account->provinsi)}}" readonly />
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label for="kotakab" class="form-label">Kota/Kabupaten</label>
+                                            <input type="text" class="form-control" id="kota" name="kota" value="{{($account->kotakab)}}" readonly />
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label for="kecamatan" class="form-label">Kecamatan</label>
+                                            <input type="text" class="form-control" id="kecamatan" name="kecamatan" value="{{($account->kecamatan)}}" readonly />
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label for="desa" class="form-label">Desa</label>
+                                            <input type="text" class="form-control" id="desa" name="desa" value="{{($account->desa)}}" readonly />
+                                        </div>
+                                    </div>
                   </div>
                   
                 </div>
@@ -159,6 +171,35 @@
             <!-- / Content -->
         </div>
     </section>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalCenterTitle">Data Preorder</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div id="page" class="p-2"></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+            <script>
+
+            // Untuk modal halaman update
+            function show(id) {
+                $.get("{{ url('/account/show') }}/"+ id, {}, function(data, status) {
+                    $("#exampleModalLabel").html('Ubah Alamat')
+                    $("#page").html(data);
+                    $("#exampleModal").modal('show');
+
+                });
+            }
+            
+            </script>
 
             
 @endsection

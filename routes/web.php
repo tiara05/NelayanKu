@@ -220,6 +220,8 @@ Route::prefix('/')->group(function () {
     Route::prefix('/account')->name('account.')->group(function () {
         Route::get('/', [MarketplaceAccountController::class, 'index'])->name('index')->middleware('auth');
         Route::post('/update', [MarketplaceAccountController::class, 'update'])->name('update');
+        Route::get('/show/{id}', [MarketplaceAccountController::class, 'show'])->name('show');
+        Route::post('/create', [MarketplaceAccountController::class, 'create'])->name('create')->middleware('auth');
     });
 
     Route::prefix('review')->name('review.')->group(function () {
