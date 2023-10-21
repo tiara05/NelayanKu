@@ -24,7 +24,7 @@ class MarketplaceCartController extends Controller
 
             $rt = Cart::with(['produk'])->whereIn('id_nelayan', $cart)->where('id_user', Auth::user()->id)->get();
 
-            $tot = Cart::sum('harga');
+            $tot = Cart::where('id_user', Auth::user()->id)->sum('harga');
             
             // dd($rt);
             return view('User.Page.Marketplace.Page.Cart.Cart', compact('tot', 'ca', 'rt'));

@@ -9,6 +9,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="{{route('marketplace.index')}}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{{route('preorder.index')}}">Pre Order</a></li>
           <li><a class="nav-link scrollto" href="{{route('activity.index')}}">Aktivitas</a></li>
           <li><a class="nav-link scrollto" href="{{route('cart.index')}}">Keranjang</a></li>
           <li><a class="nav-link scrollto o" href="{{route('favorit.index')}}">Favorit</a></li>

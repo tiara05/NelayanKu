@@ -121,6 +121,9 @@
                                     @endif
 
                                 </div>
+                                <div>
+                                    <p>NB : Kalau mau pesen lebih dari 50 kg PreOrder Dulu ya</p>
+                                </div>
                                 <div class="pb-4 mt-4">
                                     @if(session()->has('user'))
                                         @if($pro->isEmpty())
@@ -135,10 +138,13 @@
                                     @else
                                         <a href="{{route('favorit.create', $produk->id)}}" class="btn md-2 " style="margin-right: 3%; border-color: #128FE2; width: 20%; color: #0E6BAA;"> <i class="fa fa-heart-o" size:9x aria-hidden="true" style=" margin-right: 5%"></i>Favorit</a>           
                                     @endif
-                                        <button type="submit" class="btn" name="cart" style="background-color: #128FE2; font-color:white; width:40%; color: white; "><i class="fa fa-cart-plus" aria-hidden="true" style="margin-right: 5%"></i>Masukkan Keranjang</button>
-                                    
+                                        
+                                        <button type="submit" class="btn" name="cart" style="background-color: #128FE2; font-color:white; width:76%; color: white; "><i class="fa fa-cart-plus" aria-hidden="true" style="margin-right: 5%"></i>Masukkan Keranjang</button>
+                                        
                                 </div>  
                             </form>
+                            <button onClick="show({{ $produk->id }})" class="btn md-2 " style=";margin-right: 3%; margin-bottom: 3%; border-color: #128FE2; width: 100%; color: #0E6BAA;"> Pre Order</button>
+                            
                             <h6 style="" class=""><b>Mitra</b></h6><br>
                             <div class="d-flex">
                                     <img
@@ -172,8 +178,25 @@
                 </div>
             </div>
             
+            
+            
+        </div>
+    </section><!-- End About Section -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalCenterTitle">Data Preorder</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div id="page" class="p-2"></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
 
-
+            <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
             <script>
             
             $('.add').click(function () {
@@ -186,9 +209,17 @@
                     $(this).next().val(+$(this).next().val() - 1);
                     }
             });
+
+            // Untuk modal halaman update
+            function show(id) {
+                $.get("{{ url('/preorder/show') }}/"+ id, {}, function(data, status) {
+                    $("#exampleModalLabel").html('PreOrder Produk')
+                    $("#page").html(data);
+                    $("#exampleModal").modal('show');
+
+                });
+            }
             
             </script>
-        </div>
-    </section><!-- End About Section -->
 
 @endsection

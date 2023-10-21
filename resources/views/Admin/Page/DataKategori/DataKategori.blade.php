@@ -76,7 +76,7 @@
             $.get("{{ url('admin/datakategori/show') }}/"+ id, {}, function(data, status) {
                 $("#exampleModalLabel").html('Ubah Product')
                 $("#page").html(data);
-                $("#exampleModal").modal('show');
+                $("#exampl  eModal").modal('show');
 
             });
         }

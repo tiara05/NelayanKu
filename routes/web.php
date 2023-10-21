@@ -39,6 +39,7 @@ use App\Http\Controllers\User\Marketplace\MarketplaceActivityController;
 use App\Http\Controllers\User\Marketplace\MarketplacePembayaranController;
 use App\Http\Controllers\User\Marketplace\MarketplaceAccountController;
 use App\Http\Controllers\User\Marketplace\MarketplaceReviewController;
+use App\Http\Controllers\User\Marketplace\MarketplacePreorderController;
 
 /*
 
@@ -196,6 +197,13 @@ Route::prefix('/')->group(function () {
         Route::get('/', [MarketplaceCheckoutController::class, 'index'])->name('index')->middleware('auth');
         Route::get('/checkout', [MarketplaceCheckoutController::class, 'checkout'])->name('checkout')->middleware('auth');
         Route::get('/create', [MarketplaceCheckoutController::class, 'create'])->name('create')->middleware('auth');
+    });
+
+    Route::prefix('/preorder')->name('preorder.')->group(function () {
+        Route::get('/', [MarketplacePreorderController::class, 'index'])->name('index')->middleware('auth');
+        Route::get('/preorder', [MarketplacePreorderController::class, 'preorder'])->name('preorder')->middleware('auth');
+        Route::post('/create', [MarketplacePreorderController::class, 'create'])->name('create')->middleware('auth');
+        Route::get('/show/{id}', [MarketplacePreorderController::class, 'show'])->name('showpre');
     });
 
     Route::prefix('/activity')->name('activity.')->group(function () {
